@@ -17,7 +17,10 @@ class SecondViewController: UIViewController {
         super.viewDidLoad()
         updateNavBar()
         applyMotion(myUIView, magnitude: 40)
-       
+    }
+
+    @IBAction func goBack(_ sender: AnyObject){
+        self.navigationController?.popViewController(animated: true)
     }
     
     func applyMotion(_ view: UIView, magnitude: Float) {
@@ -34,10 +37,6 @@ class SecondViewController: UIViewController {
         group.motionEffects = [motionX, motionY]
         
         view.addMotionEffect(group)
-    }
-
-    @IBAction func goBack(_ sender: AnyObject){
-        self.navigationController?.popViewController(animated: true)
     }
     
     func updateNavBar() {

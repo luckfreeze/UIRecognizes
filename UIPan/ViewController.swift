@@ -37,10 +37,11 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         self.labelY.text = String(describing: view.center.y + point.y)
 
         if sender.state == UIGestureRecognizerState.ended {
-            UIView.animate(withDuration: 0.2) {
+            
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 1.0, options: [], animations: {
                 myView.center = self.view.center
-                
-            }
+            }, completion: nil)
+
             self.labelX.text = String(describing: view.center.x)
             self.labelY.text = String(describing: view.center.y)
         }
@@ -52,9 +53,9 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         myView.transform = CGAffineTransform(scaleX: sender.scale, y: sender.scale)
         
         if sender.state == UIGestureRecognizerState.ended {
-            UIView.animate(withDuration: 0.2, animations: {
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 1.0, options: [], animations: {
                 myView.transform = CGAffineTransform.identity
-            })
+            }, completion: nil)
         }
     }
     
@@ -66,9 +67,9 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
         myView.transform = CGAffineTransform(rotationAngle: rotation)
         if sender.state == .ended {
-            UIView.animate(withDuration: 0.4, animations: { 
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 1.0, options: [], animations: {
                 myView.transform = CGAffineTransform.identity
-            })
+            }, completion: nil)
         }
     }
     
